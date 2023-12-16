@@ -2,11 +2,13 @@ package net.dakotapride.createframed.registry;
 
 import com.simibubi.create.AllCreativeModeTabs;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassBlock;
+import com.simibubi.create.content.decoration.palettes.ConnectedGlassPaneBlock;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.dakotapride.createframed.CreateFramedMod;
 import net.dakotapride.createframed.block.TintedConnectedGlassBlock;
+import net.dakotapride.createframed.block.TintedConnectedGlassPaneBlock;
 import net.minecraft.world.level.block.Blocks;
 
 @SuppressWarnings({"unused"})
@@ -46,6 +48,41 @@ public class CreateFramedBlocks {
     public static final BlockEntry<ConnectedGlassBlock> BROWN_STAINED_FRAMED_GLASS = CreateFramedBuilderTransformers.colouredFramedGlass(
             "brown_stained_framed_glass", () -> new SimpleCTBehaviour(CreateFramedSpriteShifts.BROWN_STAINED_FRAMED_GLASS), Blocks.BROWN_STAINED_GLASS);
     public static final BlockEntry<TintedConnectedGlassBlock> TINTED_FRAMED_GLASS = CreateFramedBuilderTransformers.tintedFramedGlass();
+
+    public static final BlockEntry<ConnectedGlassPaneBlock> RED_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "red_stained_framed_glass", CreateFramedBlocks.RED_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.RED_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> ORANGE_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "orange_stained_framed_glass", CreateFramedBlocks.ORANGE_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.ORANGE_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> YELLOW_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "yellow_stained_framed_glass", CreateFramedBlocks.YELLOW_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.YELLOW_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> GREEN_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "green_stained_framed_glass", CreateFramedBlocks.GREEN_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.GREEN_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> LIME_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "lime_stained_framed_glass", CreateFramedBlocks.LIME_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.LIME_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> BLUE_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "blue_stained_framed_glass", CreateFramedBlocks.BLUE_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.BLUE_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> LIGHT_BLUE_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "light_blue_stained_framed_glass", CreateFramedBlocks.LIGHT_BLUE_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.LIGHT_BLUE_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> CYAN_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "cyan_stained_framed_glass", CreateFramedBlocks.CYAN_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.CYAN_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> PURPLE_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "purple_stained_framed_glass", CreateFramedBlocks.PURPLE_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.PURPLE_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> MAGENTA_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "magenta_stained_framed_glass", CreateFramedBlocks.MAGENTA_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.MAGENTA_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> PINK_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "pink_stained_framed_glass", CreateFramedBlocks.PINK_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.PINK_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> BLACK_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "black_stained_framed_glass", CreateFramedBlocks.BLACK_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.BLACK_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> GRAY_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "gray_stained_framed_glass", CreateFramedBlocks.GRAY_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.GRAY_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> LIGHT_GRAY_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "light_gray_stained_framed_glass", CreateFramedBlocks.LIGHT_GRAY_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.LIGHT_GRAY_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> WHITE_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "white_stained_framed_glass", CreateFramedBlocks.WHITE_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.WHITE_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<ConnectedGlassPaneBlock> BROWN_STAINED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.colouredFramedGlassPane(
+            "brown_stained_framed_glass", CreateFramedBlocks.BROWN_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.BROWN_STAINED_FRAMED_GLASS);
+    public static final BlockEntry<TintedConnectedGlassPaneBlock> TINTED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.tintedFramedGlassPane(
+            "tinted_framed_glass", CreateFramedBlocks.TINTED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.TINTED_FRAMED_GLASS);
 
     public static void register() {}
 

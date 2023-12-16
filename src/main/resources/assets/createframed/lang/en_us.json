@@ -15,5 +15,23 @@
   "block.createframed.light_gray_stained_framed_glass": "Light Gray Stained Framed Glass",
   "block.createframed.white_stained_framed_glass": "White Stained Framed Glass",
   "block.createframed.brown_stained_framed_glass": "Brown Stained Framed Glass",
-  "block.createframed.tinted_framed_glass": "Tinted Framed Glass"
+  "block.createframed.tinted_framed_glass": "Tinted Framed Glass",
+
+  "block.createframed.red_stained_framed_glass_pane": "Red Stained Framed Glass Pane",
+  "block.createframed.orange_stained_framed_glass_pane": "Orange Stained Framed Glass Pane",
+  "block.createframed.yellow_stained_framed_glass_pane": "Yellow Stained Framed Glass Pane",
+  "block.createframed.green_stained_framed_glass_pane": "Green Stained Framed Glass Pane",
+  "block.createframed.lime_stained_framed_glass_pane": "Lime Stained Framed Glass Pane",
+  "block.createframed.blue_stained_framed_glass_pane": "Blue Stained Framed Glass Pane",
+  "block.createframed.light_blue_stained_framed_glass_pane": "Light Blue Stained Framed Glass Pane",
+  "block.createframed.cyan_stained_framed_glass_pane": "Cyan Stained Framed Glass Pane",
+  "block.createframed.purple_stained_framed_glass_pane": "Purple Stained Framed Glass Pane",
+  "block.createframed.magenta_stained_framed_glass_pane": "Magenta Stained Framed Glass Pane",
+  "block.createframed.pink_stained_framed_glass_pane": "Pink Stained Framed Glass Pane",
+  "block.createframed.black_stained_framed_glass_pane": "Black Stained Framed Glass Pane",
+  "block.createframed.gray_stained_framed_glass_pane": "Gray Stained Framed Glass Pane",
+  "block.createframed.light_gray_stained_framed_glass_pane": "Light Gray Stained Framed Glass Pane",
+  "block.createframed.white_stained_framed_glass_pane": "White Stained Framed Glass Pane",
+  "block.createframed.brown_stained_framed_glass_pane": "Brown Stained Framed Glass Pane",
+  "block.createframed.tinted_framed_glass_pane": "Tinted Framed Glass Pane"
 }
