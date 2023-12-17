@@ -1,8 +1,10 @@
 package net.dakotapride.createframed.registry;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllCreativeModeTabs;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.contraptions.behaviour.DoorMovingInteraction;
+import com.simibubi.create.content.decoration.TrainTrapdoorBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassPaneBlock;
 import com.simibubi.create.content.decoration.palettes.GlassPaneBlock;
@@ -13,7 +15,9 @@ import com.simibubi.create.foundation.block.connected.ConnectedTextureBehaviour;
 import com.simibubi.create.foundation.block.connected.GlassPaneCTBehaviour;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
 import com.simibubi.create.foundation.data.AssetLookup;
+import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
@@ -25,21 +29,28 @@ import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.dakotapride.createframed.CreateFramedMod;
 import net.dakotapride.createframed.block.TintedConnectedGlassBlock;
 import net.dakotapride.createframed.block.TintedConnectedGlassPaneBlock;
+import net.dakotapride.createframed.block.TintedFramedGlassTrapdoorBlock;
+import net.dakotapride.createframed.block.behaviour.FramedGlassTrapdoorCTBehaviour;
 import net.dakotapride.createframed.block.door.FramedGlassSlidingDoorBlock;
+import net.dakotapride.createframed.block.door.TintedFramedGlassSlidingDoorBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.common.util.ForgeSoundType;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -78,6 +89,54 @@ public class CreateFramedBuilderTransformers {
                 .onRegister(movementBehaviour(new SlidingDoorMovementBehaviour()))
                 .item()
                 .build();
+    }
+
+    public static <B extends TintedFramedGlassSlidingDoorBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> tintedSlidingDoor(String type) {
+        return b -> b.initialProperties(Material.WOOD) // for villager AI..
+                .properties(p -> p.strength(3.0F, 6.0F))
+                .addLayer(() -> RenderType::translucent)
+                .onRegister(interactionBehaviour(new DoorMovingInteraction()))
+                .onRegister(movementBehaviour(new SlidingDoorMovementBehaviour()))
+                .item()
+                .build();
+    }
+
+    public static BlockEntry<FramedGlassSlidingDoorBlock> framedGlassSlidingDoor(String type, MaterialColor colour) {
+        return REGISTRATE.block(type + "_door", FramedGlassSlidingDoorBlock::new)
+                .initialProperties(AllBlocks.FRAMED_GLASS_DOOR)
+                .properties(p -> p.sound(SoundType.GLASS).color(colour))
+                .transform(CreateFramedBuilderTransformers.slidingDoor(type))
+                .properties(BlockBehaviour.Properties::noOcclusion)
+                .register();
+    }
+
+    public static BlockEntry<TintedFramedGlassSlidingDoorBlock> tintedFramedGlassSlidingDoor(String type, MaterialColor colour) {
+        return REGISTRATE.block(type + "_door", TintedFramedGlassSlidingDoorBlock::new)
+                .initialProperties(AllBlocks.FRAMED_GLASS_DOOR)
+                .properties(p -> p.sound(SoundType.GLASS).color(colour))
+                .transform(CreateFramedBuilderTransformers.tintedSlidingDoor(type))
+                .properties(BlockBehaviour.Properties::noOcclusion)
+                .register();
+    }
+
+    public static BlockEntry<TrainTrapdoorBlock> framedGlassTrapdoor(String name, MaterialColor colour, CTSpriteShiftEntry spriteShiftEntry) {
+        return REGISTRATE.block(name + "_trapdoor", TrainTrapdoorBlock::new)
+                .initialProperties(SharedProperties::softMetal)
+                .transform(BuilderTransformers.trapdoor(false))
+                .properties(p -> p.sound(SoundType.GLASS).noOcclusion().color(colour))
+                .onRegister(connectedTextures(() -> new FramedGlassTrapdoorCTBehaviour(spriteShiftEntry)))
+                .addLayer(() -> RenderType::translucent)
+                .register();
+    }
+
+    public static BlockEntry<TintedFramedGlassTrapdoorBlock> tintedFramedGlassTrapdoor(String name, MaterialColor colour, CTSpriteShiftEntry spriteShiftEntry) {
+        return REGISTRATE.block(name + "_trapdoor", TintedFramedGlassTrapdoorBlock::new)
+                .initialProperties(SharedProperties::softMetal)
+                .transform(BuilderTransformers.trapdoor(false))
+                .properties(p -> p.sound(SoundType.GLASS).noOcclusion().color(colour))
+                .onRegister(connectedTextures(() -> new FramedGlassTrapdoorCTBehaviour(spriteShiftEntry)))
+                .addLayer(() -> RenderType::translucent)
+                .register();
     }
 
     public static BlockEntry<ConnectedGlassPaneBlock> colouredFramedGlassPane(String name, Supplier<? extends Block> parent,
