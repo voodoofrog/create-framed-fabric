@@ -3,6 +3,7 @@ package net.dakotapride.createframed;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.dakotapride.createframed.registry.CreateFramedBlocks;
+import net.dakotapride.createframed.registry.CreateFramedEntityTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -32,6 +33,7 @@ public class CreateFramedMod {
         REGISTRATE.registerEventListeners(bus);
 
         CreateFramedBlocks.register();
+        CreateFramedEntityTypes.register();
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

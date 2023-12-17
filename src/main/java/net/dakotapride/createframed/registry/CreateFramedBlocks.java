@@ -1,17 +1,32 @@
 package net.dakotapride.createframed.registry;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllCreativeModeTabs;
+import com.simibubi.create.content.decoration.TrainTrapdoorBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassPaneBlock;
+import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorBlock;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
+import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.dakotapride.createframed.CreateFramedMod;
 import net.dakotapride.createframed.block.TintedConnectedGlassBlock;
 import net.dakotapride.createframed.block.TintedConnectedGlassPaneBlock;
+import net.dakotapride.createframed.block.behaviour.FramedGlassTrapdoorCTBehaviour;
+import net.dakotapride.createframed.block.door.FramedGlassSlidingDoorBlock;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.common.util.ForgeSoundType;
 
-@SuppressWarnings({"unused"})
+import static com.simibubi.create.Create.REGISTRATE;
+import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
+
+@SuppressWarnings({"unused","removal"})
 public class CreateFramedBlocks {
     private static final CreateRegistrate REGISTRATE = CreateFramedMod.REGISTRATE.creativeModeTab(() -> AllCreativeModeTabs.PALETTES_CREATIVE_TAB);
 
@@ -83,6 +98,27 @@ public class CreateFramedBlocks {
             "brown_stained_framed_glass", CreateFramedBlocks.BROWN_STAINED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.BROWN_STAINED_FRAMED_GLASS);
     public static final BlockEntry<TintedConnectedGlassPaneBlock> TINTED_FRAMED_GLASS_PANE = CreateFramedBuilderTransformers.tintedFramedGlassPane(
             "tinted_framed_glass", CreateFramedBlocks.TINTED_FRAMED_GLASS, () -> CreateFramedSpriteShifts.TINTED_FRAMED_GLASS);
+
+    public static final BlockEntry<FramedGlassSlidingDoorBlock> RED_STAINED_FRAMED_GLASS_DOOR =
+            REGISTRATE.block("red_stained_framed_glass_door", FramedGlassSlidingDoorBlock::new)
+                    .initialProperties(AllBlocks.FRAMED_GLASS_DOOR)
+                    .properties(p -> p.sound(new ForgeSoundType(1, .7f, () -> SoundEvents.GLASS_BREAK,
+                            () -> SoundEvents.GLASS_STEP, () -> SoundEvents.GLASS_PLACE,
+                            () -> SoundEvents.GLASS_HIT, () -> SoundEvents.GLASS_FALL)))
+                    .transform(CreateFramedBuilderTransformers.slidingDoor("red_stained_framed_glass"))
+                    .properties(p -> p.color(MaterialColor.TERRACOTTA_RED).noOcclusion())
+                    .register();
+
+    public static final BlockEntry<TrainTrapdoorBlock> RED_STAINED_FRAMED_GLASS_TRAPDOOR =
+            REGISTRATE.block("red_stained_framed_glass_trapdoor", TrainTrapdoorBlock::new)
+                    .initialProperties(SharedProperties::softMetal)
+                    .transform(BuilderTransformers.trapdoor(false))
+                    .properties(p -> p.color(MaterialColor.COLOR_RED)
+                            .sound(SoundType.GLASS)
+                            .noOcclusion())
+                    .onRegister(connectedTextures(() -> new FramedGlassTrapdoorCTBehaviour(CreateFramedSpriteShifts.RED_STAINED_FRAMED_GLASS)))
+                    .addLayer(() -> RenderType::translucent)
+                    .register();
 
     public static void register() {}
 
