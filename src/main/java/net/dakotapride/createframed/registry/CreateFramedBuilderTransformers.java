@@ -2,25 +2,24 @@ package net.dakotapride.createframed.registry;
 
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllCreativeModeTabs;
-import com.simibubi.create.AllTags;
 import com.simibubi.create.content.contraptions.behaviour.DoorMovingInteraction;
 import com.simibubi.create.content.decoration.TrainTrapdoorBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassPaneBlock;
 import com.simibubi.create.content.decoration.palettes.GlassPaneBlock;
-import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorBlock;
 import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorMovementBehaviour;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.block.connected.ConnectedTextureBehaviour;
 import com.simibubi.create.foundation.block.connected.GlassPaneCTBehaviour;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
-import com.simibubi.create.foundation.data.AssetLookup;
+import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
+import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
@@ -30,35 +29,31 @@ import net.dakotapride.createframed.CreateFramedMod;
 import net.dakotapride.createframed.block.TintedConnectedGlassBlock;
 import net.dakotapride.createframed.block.TintedConnectedGlassPaneBlock;
 import net.dakotapride.createframed.block.TintedFramedGlassTrapdoorBlock;
+import net.dakotapride.createframed.block.TintedGlassPaneBlock;
 import net.dakotapride.createframed.block.behaviour.FramedGlassTrapdoorCTBehaviour;
 import net.dakotapride.createframed.block.door.FramedGlassSlidingDoorBlock;
 import net.dakotapride.createframed.block.door.TintedFramedGlassSlidingDoorBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.util.ForgeSoundType;
+import net.minecraftforge.common.Tags;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static com.simibubi.create.AllInteractionBehaviours.interactionBehaviour;
 import static com.simibubi.create.AllMovementBehaviours.movementBehaviour;
+import static com.simibubi.create.Create.REGISTRATE;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
-import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
 @SuppressWarnings({"unused","removal"})
 public class CreateFramedBuilderTransformers {
@@ -76,6 +71,42 @@ public class CreateFramedBuilderTransformers {
                         .isSuffocating(CreateFramedBuilderTransformers::never)
                         .isViewBlocking(CreateFramedBuilderTransformers::never)
                         .noOcclusion())
+                .item()
+                .build()
+                .register();
+    }
+
+    public static BlockEntry<GlassBlock> colouredTiledGlass(String colourType) {
+        return REGISTRATE.block(colourType + "_stained_tiled_glass", GlassBlock::new)
+                .initialProperties(() -> Blocks.GLASS)
+                .addLayer(() -> RenderType::translucent)
+                .item()
+                .build()
+                .register();
+    }
+
+    public static BlockEntry<GlassPaneBlock> colouredTiledGlassPane(String colourType) {
+        return REGISTRATE.block(colourType + "_stained_tiled_glass_pane", GlassPaneBlock::new)
+                .initialProperties(() -> Blocks.GLASS_PANE)
+                .addLayer(() -> RenderType::translucent)
+                .item()
+                .build()
+                .register();
+    }
+
+    public static BlockEntry<TintedGlassBlock> tintedTiledGlass() {
+        return REGISTRATE.block("tinted_tiled_glass", TintedGlassBlock::new)
+                .initialProperties(() -> Blocks.TINTED_GLASS)
+                .addLayer(() -> RenderType::translucent)
+                .item()
+                .build()
+                .register();
+    }
+
+    public static BlockEntry<TintedGlassPaneBlock> tintedTiledGlassPane() {
+        return REGISTRATE.block("tinted_tiled_glass_pane", TintedGlassPaneBlock::new)
+                .initialProperties(() -> Blocks.GLASS_PANE)
+                .addLayer(() -> RenderType::translucent)
                 .item()
                 .build()
                 .register();

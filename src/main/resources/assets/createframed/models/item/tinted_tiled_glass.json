@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "createframed:block/tinted_tiled_glass",
+    "side": "createframed:block/tinted_tiled_glass"
+  }
+}

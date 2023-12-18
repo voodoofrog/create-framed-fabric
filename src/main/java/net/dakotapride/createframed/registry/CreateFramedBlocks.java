@@ -1,34 +1,26 @@
 package net.dakotapride.createframed.registry;
 
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllCreativeModeTabs;
 import com.simibubi.create.content.decoration.TrainTrapdoorBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassPaneBlock;
-import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorBlock;
+import com.simibubi.create.content.decoration.palettes.GlassPaneBlock;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
-import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.dakotapride.createframed.CreateFramedMod;
 import net.dakotapride.createframed.block.TintedConnectedGlassBlock;
 import net.dakotapride.createframed.block.TintedConnectedGlassPaneBlock;
 import net.dakotapride.createframed.block.TintedFramedGlassTrapdoorBlock;
-import net.dakotapride.createframed.block.behaviour.FramedGlassTrapdoorCTBehaviour;
+import net.dakotapride.createframed.block.TintedGlassPaneBlock;
 import net.dakotapride.createframed.block.door.FramedGlassSlidingDoorBlock;
 import net.dakotapride.createframed.block.door.TintedFramedGlassSlidingDoorBlock;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.level.block.TintedGlassBlock;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.common.util.ForgeSoundType;
 
-import static com.simibubi.create.Create.REGISTRATE;
-import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
-
-@SuppressWarnings({"unused","removal"})
+@SuppressWarnings({"unused"})
 public class CreateFramedBlocks {
     private static final CreateRegistrate REGISTRATE = CreateFramedMod.REGISTRATE.creativeModeTab(() -> AllCreativeModeTabs.PALETTES_CREATIVE_TAB);
 
@@ -187,6 +179,42 @@ public class CreateFramedBlocks {
     public static final BlockEntry<TintedFramedGlassTrapdoorBlock> TINTED_FRAMED_GLASS_TRAPDOOR =
             CreateFramedBuilderTransformers.tintedFramedGlassTrapdoor("tinted_framed_glass",
                     MaterialColor.COLOR_BLACK, CreateFramedSpriteShifts.TINTED_FRAMED_GLASS);
+
+    public static final BlockEntry<GlassBlock> RED_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("red");
+    public static final BlockEntry<GlassBlock> ORANGE_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("orange");
+    public static final BlockEntry<GlassBlock> YELLOW_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("yellow");
+    public static final BlockEntry<GlassBlock> GREEN_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("green");
+    public static final BlockEntry<GlassBlock> LIME_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("lime");
+    public static final BlockEntry<GlassBlock> BLUE_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("blue");
+    public static final BlockEntry<GlassBlock> LIGHT_BLUE_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("light_blue");
+    public static final BlockEntry<GlassBlock> CYAN_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("cyan");
+    public static final BlockEntry<GlassBlock> PURPLE_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("purple");
+    public static final BlockEntry<GlassBlock> MAGENTA_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("magenta");
+    public static final BlockEntry<GlassBlock> PINK_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("pink");
+    public static final BlockEntry<GlassBlock> BLACK_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("black");
+    public static final BlockEntry<GlassBlock> GRAY_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("gray");
+    public static final BlockEntry<GlassBlock> LIGHT_GRAY_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("light_gray");
+    public static final BlockEntry<GlassBlock> WHITE_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("white");
+    public static final BlockEntry<GlassBlock> BROWN_STAINED_TILED_GLASS = CreateFramedBuilderTransformers.colouredTiledGlass("brown");
+    public static final BlockEntry<TintedGlassBlock> TINTED_TILED_GLASS = CreateFramedBuilderTransformers.tintedTiledGlass();
+
+    public static final BlockEntry<GlassPaneBlock> RED_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("red");
+    public static final BlockEntry<GlassPaneBlock> ORANGE_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("orange");
+    public static final BlockEntry<GlassPaneBlock> YELLOW_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("yellow");
+    public static final BlockEntry<GlassPaneBlock> GREEN_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("green");
+    public static final BlockEntry<GlassPaneBlock> LIME_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("lime");
+    public static final BlockEntry<GlassPaneBlock> BLUE_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("blue");
+    public static final BlockEntry<GlassPaneBlock> LIGHT_BLUE_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("light_blue");
+    public static final BlockEntry<GlassPaneBlock> CYAN_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("cyan");
+    public static final BlockEntry<GlassPaneBlock> PURPLE_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("purple");
+    public static final BlockEntry<GlassPaneBlock> MAGENTA_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("magenta");
+    public static final BlockEntry<GlassPaneBlock> PINK_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("pink");
+    public static final BlockEntry<GlassPaneBlock> BLACK_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("black");
+    public static final BlockEntry<GlassPaneBlock> GRAY_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("gray");
+    public static final BlockEntry<GlassPaneBlock> LIGHT_GRAY_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("light_gray");
+    public static final BlockEntry<GlassPaneBlock> WHITE_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("white");
+    public static final BlockEntry<GlassPaneBlock> BROWN_STAINED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.colouredTiledGlassPane("brown");
+    public static final BlockEntry<TintedGlassPaneBlock> TINTED_TILED_GLASS_PANE = CreateFramedBuilderTransformers.tintedTiledGlassPane();
 
     public static void register() {}
 

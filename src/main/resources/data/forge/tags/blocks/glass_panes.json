@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "#createframed:createframed/red/pane",
+    "#createframed:createframed/orange/pane",
+    "#createframed:createframed/yellow/pane",
+    "#createframed:createframed/green/pane",
+    "#createframed:createframed/lime/pane",
+    "#createframed:createframed/blue/pane",
+    "#createframed:createframed/light_blue/pane",
+    "#createframed:createframed/cyan/pane",
+    "#createframed:createframed/purple/pane",
+    "#createframed:createframed/magenta/pane",
+    "#createframed:createframed/pink/pane",
+    "#createframed:createframed/black/pane",
+    "#createframed:createframed/gray/pane",
+    "#createframed:createframed/light_gray/pane",
+    "#createframed:createframed/white/pane",
+    "#createframed:createframed/brown/pane",
+    "#createframed:createframed/tinted/pane"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "createframed:light_blue_stained_framed_glass_pane",
+    "createframed:light_blue_stained_tiled_glass_pane"
+  ]
+}

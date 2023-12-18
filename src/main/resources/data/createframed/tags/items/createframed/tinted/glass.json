@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "createframed:tinted_framed_glass",
+    "createframed:tinted_tiled_glass"
+  ]
+}
