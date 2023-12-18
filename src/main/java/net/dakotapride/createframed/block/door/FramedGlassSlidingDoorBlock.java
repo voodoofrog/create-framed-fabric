@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class FramedGlassSlidingDoorBlock extends SlidingDoorBlock {
     public FramedGlassSlidingDoorBlock(Properties properties) {
-        super(properties, false);
+        super(properties, GLASS_SET_TYPE.get(), false);
     }
 
     @Override
