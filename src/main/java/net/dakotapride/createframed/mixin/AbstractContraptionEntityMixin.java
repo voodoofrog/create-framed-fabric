@@ -2,7 +2,7 @@ package net.dakotapride.createframed.mixin;
 
 import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import com.simibubi.create.content.contraptions.Contraption;
-import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorBlock;
+import net.dakotapride.createframed.block.door.FramedGlassSlidingDoorBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
@@ -26,7 +26,7 @@ public class AbstractContraptionEntityMixin {
             return;
         StructureTemplate.StructureBlockInfo info = contraption.getBlocks().get(localPos);
         contraption.getBlocks().put(localPos, new StructureTemplate.StructureBlockInfo(info.pos(), newState, info.nbt()));
-        if (info.state() != newState && !(newState.getBlock() instanceof SlidingDoorBlock))
+        if (info.state() != newState && !(newState.getBlock() instanceof FramedGlassSlidingDoorBlock))
             contraption.deferInvalidate = true;
         contraption.invalidateColliders();
     }
