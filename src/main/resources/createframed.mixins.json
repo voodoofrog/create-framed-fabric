@@ -4,11 +4,7 @@
   "package": "net.dakotapride.createframed.mixin",
   "compatibilityLevel": "JAVA_16",
   "refmap": "createframed.refmap.json",
-  "mixins": [
-    "AbstractContraptionEntityMixin",
-    "BigOutlinesMixin",
-    "ContraptionMixin"
-  ],
+  "mixins": [],
   "client": [],
   "injectors": {
     "defaultRequire": 1
