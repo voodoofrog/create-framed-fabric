@@ -1,8 +1,6 @@
 {
     "pack": {
-        "description": "[Create: Framed] Resources for 1.19.x",
-        "pack_format": 9,
-        "forge:resource_pack_format": 9,
-        "forge:data_pack_format": 10
+        "description": "[Create: Framed] Resources for 1.20.x",
+        "pack_format": 15
     }
 }

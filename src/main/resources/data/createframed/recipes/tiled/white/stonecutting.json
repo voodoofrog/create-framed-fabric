@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "forge:glass/white"
+    "tag": "createframed:glass/white"
   },
   "result": "createframed:white_stained_tiled_glass"
 }

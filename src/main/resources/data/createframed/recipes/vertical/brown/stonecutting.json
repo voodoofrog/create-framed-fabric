@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "forge:glass/brown"
+    "tag": "createframed:glass/brown"
   },
   "result": "createframed:vertical_brown_stained_framed_glass"
 }

@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "forge:glass/magenta"
+    "tag": "createframed:glass/magenta"
   },
   "result": "createframed:magenta_stained_framed_glass"
 }
