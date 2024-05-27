@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "createframed",
+	"version": "${version}",
+	"name": "Create: Framed",
+	"description": "A Create mod addon that allows for more colour customization with Framed Glass!",
+	"authors": [
+		"DakotaPride"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/createframed/createframed.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.dakotapride.createframed.CreateFramedMod"
+		]
+	},
+	"mixins": [],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"create": ">=0.5.1-f-build.1417"
+	}
+}

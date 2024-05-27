@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#createframed:createframed/black/glass"
+    "minecraft:black_stained_glass",
+		"#createframed:createframed/black/glass"
   ]
 }

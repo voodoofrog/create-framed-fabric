@@ -2,31 +2,22 @@ package net.dakotapride.createframed.registry;
 
 import com.simibubi.create.foundation.utility.Components;
 import net.dakotapride.createframed.CreateFramedMod;
-import net.minecraft.core.registries.Registries;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 @SuppressWarnings("unused")
 public class CreateFramedTabs {
-    private static final DeferredRegister<CreativeModeTab> REGISTER =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateFramedMod.ID);
-    
-    public static final RegistryObject<CreativeModeTab> CREATE_FRAMED = REGISTER.register("create_framed",
-            () -> CreativeModeTab.builder()
-                    .title(Components.translatable("itemGroup.createframed.create_framed"))
-                    .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                    .icon(CreateFramedBlocks.RED_STAINED_TILED_GLASS_PANE::asStack)
-                    .displayItems(new ItemsGenerator())
-                    .build());
-    
+    public static final CreativeModeTab CREATE_FRAMED = FabricItemGroup.builder()
+            .title(Components.translatable("itemGroup.createframed.create_framed"))
+            .icon(CreateFramedBlocks.RED_STAINED_TILED_GLASS_PANE::asStack)
+            .displayItems(new ItemsGenerator())
+            .build();
+
     public static class ItemsGenerator implements CreativeModeTab.DisplayItemsGenerator {
-        
         @Override
         public void accept(CreativeModeTab.@NotNull ItemDisplayParameters p, CreativeModeTab.Output o) {
             o.accept(CreateFramedBlocks.RED_STAINED_FRAMED_GLASS_DOOR);
@@ -202,7 +193,7 @@ public class CreateFramedTabs {
         }
     }
 
-    public static void register(IEventBus bus) {
-        REGISTER.register(bus);
+    public static void register() {
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(CreateFramedMod.ID, "create_framed"), CREATE_FRAMED);
     }
 }

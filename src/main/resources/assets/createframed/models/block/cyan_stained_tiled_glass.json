@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "create:block/tiled_glass",
   "textures": {
     "all": "createframed:block/cyan_stained_tiled_glass"
   }

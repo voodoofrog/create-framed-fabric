@@ -21,6 +21,7 @@ import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
+import io.github.fabricators_of_create.porting_lib.models.generators.ModelFile;
 import net.dakotapride.createframed.CreateFramedMod;
 import net.dakotapride.createframed.block.TintedConnectedGlassBlock;
 import net.dakotapride.createframed.block.TintedConnectedGlassPaneBlock;
@@ -40,7 +41,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.client.model.generators.ModelFile;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -49,9 +49,9 @@ import static com.simibubi.create.AllInteractionBehaviours.interactionBehaviour;
 import static com.simibubi.create.AllMovementBehaviours.movementBehaviour;
 import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 
-@SuppressWarnings({"unused","removal"})
+@SuppressWarnings({"unused"})
 public class CreateFramedBuilderTransformers {
-    private static final CreateRegistrate REGISTRATE = CreateFramedMod.REGISTRATE.setCreativeTab(AllCreativeModeTabs.PALETTES_CREATIVE_TAB);
+    private static final CreateRegistrate REGISTRATE = CreateFramedMod.REGISTRATE.setCreativeTab(AllCreativeModeTabs.PALETTES_CREATIVE_TAB.key());
 
     public static BlockEntry<ConnectedGlassBlock> colouredFramedGlass(String name,
                                                                       Supplier<ConnectedTextureBehaviour> behaviour,

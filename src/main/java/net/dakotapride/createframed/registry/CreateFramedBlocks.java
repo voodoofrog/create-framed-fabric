@@ -1,15 +1,12 @@
 package net.dakotapride.createframed.registry;
 
-import com.simibubi.create.AllCreativeModeTabs;
 import com.simibubi.create.content.decoration.TrainTrapdoorBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassBlock;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassPaneBlock;
 import com.simibubi.create.content.decoration.palettes.GlassPaneBlock;
 import com.simibubi.create.foundation.block.connected.HorizontalCTBehaviour;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.dakotapride.createframed.CreateFramedMod;
 import net.dakotapride.createframed.block.TintedConnectedGlassBlock;
 import net.dakotapride.createframed.block.TintedConnectedGlassPaneBlock;
 import net.dakotapride.createframed.block.TintedFramedGlassTrapdoorBlock;
@@ -23,8 +20,6 @@ import net.minecraft.world.level.material.MapColor;
 
 @SuppressWarnings({"unused"})
 public class CreateFramedBlocks {
-    private static final CreateRegistrate REGISTRATE = CreateFramedMod.REGISTRATE.setCreativeTab(AllCreativeModeTabs.PALETTES_CREATIVE_TAB);
-
     public static final BlockEntry<ConnectedGlassBlock>
             RED_STAINED_FRAMED_GLASS = CreateFramedBuilderTransformers.colouredFramedGlass("red_stained_framed_glass",
                     () -> new SimpleCTBehaviour(CreateFramedSpriteShifts.RED_STAINED_FRAMED_GLASS), Blocks.RED_STAINED_GLASS),
